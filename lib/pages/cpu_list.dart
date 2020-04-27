@@ -20,11 +20,11 @@ class _CpuListScreenState extends State<CpuListScreen> {
 
   Widget _buildList() => ListView(
     children: <Widget>[
-      _tile('Intel Core i5-9400f', '6 cores, 6 threa  ds', Icons.border_all),
-      _tile('AMD Ryzen 5 3600', '6 cores, 12 threads', Icons.border_all),
-      _tile('Intel Core i7-8700k', '6 cores, 12 threads', Icons.border_all),
-      _tile('AMD Ryzen 5 2400g', '4 cores, 8 threads', Icons.border_all),
-      _tile('Intel Core i9-9900k', '8 cores, 16 threads', Icons.border_all),
+      _tile('Intel Core i5-9400F', '6 cores, 6 threa  ds', Icons.border_all),
+      _tile('AMD Ryzen 5 3600X', '6 cores, 12 threads', Icons.border_all),
+      _tile('Intel Core i7-8700K', '6 cores, 12 threads', Icons.border_all),
+      _tile('AMD Ryzen 5 2400G', '4 cores, 8 threads', Icons.border_all),
+      _tile('Intel Core i9-9900K', '8 cores, 16 threads', Icons.border_all),
 
     ],
   );

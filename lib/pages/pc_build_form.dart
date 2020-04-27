@@ -30,14 +30,14 @@ class _PCBuildForm extends State<PCBuildForm> {
 
   Widget _buildList() => ListView(
     children: <Widget>[
-      _tile('Processor', 'Brain of the computer', Icons.border_all, toCpuBrowseScreen),
-      _tile('RAM', 'Short term memory', Icons.border_all, toCpuBrowseScreen),
-      _tile('GPU', 'Pushes the pixels into the screen', Icons.border_all, toCpuBrowseScreen),
-      _tile('Storage', 'Place to store all your virtual stuff', Icons.border_all, toCpuBrowseScreen),
+      _tile('Processor', 'Brain of the computer', Icons.border_all, 1),
+      _tile('RAM', 'Short term memory', Icons.border_all, 2),
+      _tile('GPU', 'Pushes the pixels into the screen', Icons.border_all, 3),
+      _tile('Storage', 'Place to store all your virtual stuff', Icons.border_all, 4),
     ],
   );
 
-  ListTile _tile(String title, String subtitle, IconData icon, Function navFunc) => ListTile(
+  ListTile _tile(String title, String subtitle, IconData icon, int navCode) => ListTile(
     title: Text(title, 
       style: TextStyle(
         fontWeight: FontWeight.w500,
@@ -48,7 +48,37 @@ class _PCBuildForm extends State<PCBuildForm> {
       icon,
       color: Colors.blue[500],
     ),
-    onTap:  () {showAlertDialog(context);} ,
+    onTap:  () {
+
+      switch(navCode) {
+        case 0: {
+          showAlertDialog(context);
+        }
+        break;
+
+        case 1:{
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CpuListScreen())); 
+        }
+        break;
+
+        case 2:{
+          showAlertDialog(context);
+        }
+        break;
+
+        case 3: {
+          showAlertDialog(context);
+        }
+        break;
+
+        case 4: {
+          showAlertDialog(context);
+        }
+        break;
+      }
+      // Navigator.push(context, MaterialPageRoute(builder: (context) => CpuListScreen())); 
+      // showAlertDialog(context);
+    } ,
   );
 }
 
