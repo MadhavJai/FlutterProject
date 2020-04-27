@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void onClose(){
-      // Navigator.push(context, CupertinoPageRoute(builder: (context) => MyApp()));
+      Navigator.push(context, CupertinoPageRoute(builder: (context) => MyApp()));
       // Navigator.push(context, route)
   }
 
