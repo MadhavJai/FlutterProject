@@ -10,6 +10,7 @@ import 'package:test_app/pages/cpu_list.dart';
 import 'package:test_app/pages/pc_build_form.dart';
 
 
+
 var routes = <String, WidgetBuilder> {
   "/cpu_list": (BuildContext context) =>  CpuListScreen(),
   "/build_form": (BuildContext context) => PCBuildForm()
@@ -17,6 +18,9 @@ var routes = <String, WidgetBuilder> {
 
 void main() => runApp(MaterialApp(
   theme: ThemeData(primaryColor: Colors.red, accentColor: Colors.yellowAccent),
+  routes: {
+    '/CPUList': (context) => CpuListScreen()
+  },
   debugShowCheckedModeBanner: false,
   home: SplashScreen(),
 ));
@@ -37,8 +41,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void onClose(){
-      Navigator.push(context, CupertinoPageRoute(builder: (context) => MyApp()));
-      // Navigator.of(context).push(_createRoute());
+      // Navigator.push(context, CupertinoPageRoute(builder: (context) => MyApp()));
+      // Navigator.push(context, route)
   }
 
   @override
