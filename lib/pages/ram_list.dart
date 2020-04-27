@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class CpuListScreen extends StatefulWidget {
+class RamListScreen extends StatefulWidget {
   @override
-  _CpuListScreenState createState() => new _CpuListScreenState();
+  _RamListScreenState createState() => new _RamListScreenState();
 }
 
-class _CpuListScreenState extends State<CpuListScreen> {
+class _RamListScreenState extends State<RamListScreen> {
   static final showGrid = false;
   @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text('CPU List'),
+        title: Text('RAM List'),
       ),
       body: Center(child: _buildList(),),
     );
   }
 
+
   Widget _buildList() => ListView(
     children: <Widget>[
-      _tile('Intel Core i5-9400F', '6 cores, 6 threads', Icons.border_all),
-      _tile('AMD Ryzen 5 3600X', '6 cores, 12 threads', Icons.border_all),
-      _tile('Intel Core i7-8700K', '6 cores, 12 threads', Icons.border_all),
-      _tile('AMD Ryzen 5 2400G', '4 cores, 8 threads', Icons.border_all),
-      _tile('Intel Core i9-9900K', '8 cores, 16 threads', Icons.border_all),
-
+      _tile('Corsair Vengeance LPX', '16 GB', Icons.border_all),
+      _tile('G. Skill Ripjaws V', '16 GB', Icons.border_all),
+      _tile('G. Skill Trident Z RGB', '32 GB', Icons.border_all),
+      _tile('G. Skill Aegis', '8 GB', Icons.border_all),
     ],
   );
 
@@ -43,6 +42,4 @@ class _CpuListScreenState extends State<CpuListScreen> {
   );
 
 
-
 }
-

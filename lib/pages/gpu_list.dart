@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class CpuListScreen extends StatefulWidget {
+class GpuListScreen extends StatefulWidget {
   @override
-  _CpuListScreenState createState() => new _CpuListScreenState();
+  _GpuListScreenState createState() => new _GpuListScreenState();
 }
 
-class _CpuListScreenState extends State<CpuListScreen> {
+class _GpuListScreenState extends State<GpuListScreen> {
   static final showGrid = false;
   @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text('CPU List'),
+        title: Text('GPU List'),
       ),
       body: Center(child: _buildList(),),
     );
@@ -20,11 +20,11 @@ class _CpuListScreenState extends State<CpuListScreen> {
 
   Widget _buildList() => ListView(
     children: <Widget>[
-      _tile('Intel Core i5-9400F', '6 cores, 6 threads', Icons.border_all),
-      _tile('AMD Ryzen 5 3600X', '6 cores, 12 threads', Icons.border_all),
-      _tile('Intel Core i7-8700K', '6 cores, 12 threads', Icons.border_all),
-      _tile('AMD Ryzen 5 2400G', '4 cores, 8 threads', Icons.border_all),
-      _tile('Intel Core i9-9900K', '8 cores, 16 threads', Icons.border_all),
+      _tile('GeForce RTX 2070 SUPER', '8 GB', Icons.border_all),
+      _tile('GeForce GTX 1660 SUPER', '6 GB', Icons.border_all),
+      _tile('Radeon RX 5700 XT', '8 GB', Icons.border_all),
+      _tile('GeForce RTX 2060 SUPER', '8 GB', Icons.border_all),
+      _tile('GeForce RTX 2080 Ti', '11 GB', Icons.border_all),
 
     ],
   );
@@ -42,7 +42,4 @@ class _CpuListScreenState extends State<CpuListScreen> {
     ),
   );
 
-
-
 }
-

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/pages/cpu_list.dart';
+import 'package:test_app/pages/gpu_list.dart';
+import 'package:test_app/pages/ram_list.dart';
+import 'package:test_app/pages/storage_list.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'cpu_list.dart';
@@ -62,22 +65,20 @@ class _PCBuildForm extends State<PCBuildForm> {
         break;
 
         case 2:{
-          showAlertDialog(context);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => RamListScreen()));
         }
         break;
 
         case 3: {
-          showAlertDialog(context);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => GpuListScreen()));
         }
         break;
 
         case 4: {
-          showAlertDialog(context);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => StorageListScreen()));
         }
         break;
       }
-      // Navigator.push(context, MaterialPageRoute(builder: (context) => CpuListScreen())); 
-      // showAlertDialog(context);
     } ,
   );
 }

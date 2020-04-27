@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-class CpuListScreen extends StatefulWidget {
+class StorageListScreen extends StatefulWidget {
   @override
-  _CpuListScreenState createState() => new _CpuListScreenState();
+  _StorageListScreenState createState() => new _StorageListScreenState();
 }
 
-class _CpuListScreenState extends State<CpuListScreen> {
+class _StorageListScreenState extends State<StorageListScreen> {
   static final showGrid = false;
   @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text('CPU List'),
+        title: Text('GPU List'),
       ),
       body: Center(child: _buildList(),),
     );
@@ -20,11 +20,10 @@ class _CpuListScreenState extends State<CpuListScreen> {
 
   Widget _buildList() => ListView(
     children: <Widget>[
-      _tile('Intel Core i5-9400F', '6 cores, 6 threads', Icons.border_all),
-      _tile('AMD Ryzen 5 3600X', '6 cores, 12 threads', Icons.border_all),
-      _tile('Intel Core i7-8700K', '6 cores, 12 threads', Icons.border_all),
-      _tile('AMD Ryzen 5 2400G', '4 cores, 8 threads', Icons.border_all),
-      _tile('Intel Core i9-9900K', '8 cores, 16 threads', Icons.border_all),
+      _tile('Seagate Barracuda', '2 TB', Icons.border_all),
+      _tile('Samsung 970 Evo', '500 GB', Icons.border_all),
+      _tile('Crucial P1', '1 TB', Icons.border_all),
+      _tile('Western Digital Blue', '1 TB', Icons.border_all),
 
     ],
   );
@@ -42,7 +41,4 @@ class _CpuListScreenState extends State<CpuListScreen> {
     ),
   );
 
-
-
 }
-
