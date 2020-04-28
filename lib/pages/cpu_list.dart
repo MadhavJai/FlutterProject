@@ -14,9 +14,110 @@ class _CpuListScreenState extends State<CpuListScreen> {
       appBar: AppBar(
         title: Text('CPU List'),
       ),
-      body: Center(child: _buildList(),),
+      body: Center(child: _buildCard(),),
     );
   }
+
+
+  Widget _buildCard() => ListView(
+
+    children: <Widget>[
+
+      SizedBox(
+      height: 160,
+      child: 
+        Card(
+          child: Column(
+            children: [
+              _tile('Intel Core i5-9400F', '6 cores, 6 threads', Icons.border_all),
+              Divider(),
+              ListTile(
+              title: Text('\$299', style: TextStyle(fontWeight: FontWeight.w500)),
+              leading: Icon(Icons.attach_money, color: Colors.blue[500],),
+              ),
+            ],
+          ),
+        ),
+        
+      ),
+
+      SizedBox(
+      height: 160,
+      child: 
+        Card(
+          child: Column(
+            children: [
+              _tile('AMD Ryzen 5 3600X', '6 cores, 12 threads', Icons.border_all),
+              Divider(),
+              ListTile(
+              title: Text('\$349', style: TextStyle(fontWeight: FontWeight.w500)),
+              leading: Icon(Icons.attach_money, color: Colors.blue[500],),
+              ),
+            ],
+          ),
+        ),
+        
+      ),
+
+      SizedBox(
+      height: 160,
+      child: 
+        Card(
+          child: Column(
+            children: [
+              _tile('Intel Core i7-8700K', '6 cores, 12 threads', Icons.border_all),
+              Divider(),
+              ListTile(
+              title: Text('\$399', style: TextStyle(fontWeight: FontWeight.w500)),
+              leading: Icon(Icons.attach_money, color: Colors.blue[500],),
+              ),
+            ],
+          ),
+        ),
+        
+      ),
+
+      SizedBox(
+      height: 160,
+      child: 
+        Card(
+          child: Column(
+            children: [
+              _tile('AMD Ryzen 5 2400G', '4 cores, 8 threads', Icons.border_all),
+              Divider(),
+              ListTile(
+              title: Text('\$149', style: TextStyle(fontWeight: FontWeight.w500)),
+              leading: Icon(Icons.attach_money, color: Colors.blue[500],),
+              ),
+            ],
+          ),
+        ),
+        
+      ),
+
+      SizedBox(
+      height: 160,
+      child: 
+        Card(
+          child: Column(
+            children: [
+              _tile('Intel Core i9-9900K', '8 cores, 16 threads', Icons.border_all),
+              Divider(),
+              ListTile(
+              title: Text('\$899', style: TextStyle(fontWeight: FontWeight.w500)),
+              leading: Icon(Icons.attach_money, color: Colors.blue[500],),
+              ),
+            ],
+          ),
+        ),
+        
+      ),
+
+    ],
+
+  );
+  
+  
 
   Widget _buildList() => ListView(
     children: <Widget>[

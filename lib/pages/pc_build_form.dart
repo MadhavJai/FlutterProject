@@ -34,6 +34,7 @@ class _PCBuildForm extends State<PCBuildForm> {
   Widget _buildList() => ListView(
     children: <Widget>[
       _tile('Processor', 'Brain of the computer', Icons.border_all, 1),
+      _tile('Motherboard', 'The base platform', Icons.border_all, 0),
       _tile('RAM', 'Short term memory', Icons.border_all, 2),
       _tile('GPU', 'Pushes the pixels into the screen', Icons.border_all, 3),
       _tile('Storage', 'Place to store all your virtual stuff', Icons.border_all, 4),
