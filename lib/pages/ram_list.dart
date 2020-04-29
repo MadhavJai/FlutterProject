@@ -1,12 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'dart:convert';
 
 class RamListScreen extends StatefulWidget {
   @override
   _RamListScreenState createState() => new _RamListScreenState();
 }
 
+
+class RAM{
+  String productName;
+  String productSubtitle;
+  String price;
+
+  RAM(
+    this.productName,
+    this.productSubtitle,
+    this.price,
+  );
+
+  factory RAM.fromJson(dynamic json){
+    return RAM(
+      json['name'] as String, 
+      json['subtitle'] as String, 
+      json['price'] as String,
+    );
+  }
+
+  @override
+  String toString(){
+    return '{${this.productName}, ${this.productSubtitle}, ${this.price},}';
+  }
+
+}
+
 class _RamListScreenState extends State<RamListScreen> {
+
+  
   static final showGrid = false;
   @override
   Widget build(BuildContext context){
@@ -15,6 +45,7 @@ class _RamListScreenState extends State<RamListScreen> {
         title: Text('RAM List'),
       ),
       body: Center(child: _buildCard(),),
+    
     );
   }
 

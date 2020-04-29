@@ -6,8 +6,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'dart:async';
+import 'dart:convert';
 import 'package:test_app/pages/cpu_list.dart';
 import 'package:test_app/pages/pc_build_form.dart';
+import 'package:test_app/pages/ram_list.dart';
 
 
 
@@ -16,14 +18,27 @@ var routes = <String, WidgetBuilder> {
   "/build_form": (BuildContext context) => PCBuildForm()
 };
 
-void main() => runApp(MaterialApp(
-  theme: ThemeData(primaryColor: Colors.red, accentColor: Colors.yellowAccent),
-  routes: {
-    '/CPUList': (context) => CpuListScreen()
-  },
-  debugShowCheckedModeBanner: false,
-  home: SplashScreen(),
-));
+void main()  {
+
+  String ramArray = '{ "RAM": [' + 
+    '{"name":"Corsair Vengeance LPX", "subtitle": "16 GB", "price": "\$119},'+
+    '{"name":"G. Skill Ripjaws V", "subtitle": "16 GB", "price": "\$99},' +
+    '{"name":"G. Skill Trident Z RGB", "subtitle": "32 GB", "price": "\$189},' +
+    '{"name":"G. Skill Aegis", "subtitle": "8 GB", "price": "\$79},' +
+  ']}';
+
+  // var ramObjJson = jsonDecode(ramArray)['RAM'] as List;
+  // List<RAM> ramObjs = ramObjJson.map((ramJson) => RAM.fromJson(ramJson)).toList();
+  // print(ramObjs);
+  runApp(MaterialApp(
+    theme: ThemeData(primaryColor: Colors.red, accentColor: Colors.yellowAccent),
+    routes: {
+      '/CPUList': (context) => CpuListScreen()
+    },
+    debugShowCheckedModeBanner: false,
+    home: SplashScreen(),
+  ));
+}
 
 
 class SplashScreen extends StatefulWidget {
