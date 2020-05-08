@@ -10,6 +10,7 @@ import 'dart:convert';
 import 'package:test_app/pages/cpu_list.dart';
 import 'package:test_app/pages/pc_build_form.dart';
 import 'package:test_app/pages/ram_list.dart';
+import './pages/alt_cpu_list.dart';
 
 
 
@@ -18,7 +19,10 @@ var routes = <String, WidgetBuilder> {
   "/build_form": (BuildContext context) => PCBuildForm()
 };
 
-void main()  {
+
+void main() => runApp(PMP());
+
+void main2()  {
 
   String ramArray = '{ "RAM": [' + 
     '{"name":"Corsair Vengeance LPX", "subtitle": "16 GB", "price": "\$119},'+
@@ -36,9 +40,33 @@ void main()  {
       '/CPUList': (context) => CpuListScreen()
     },
     debugShowCheckedModeBanner: false,
-    home: SplashScreen(),
+    home: CpuProductsScreen(),
   ));
 }
+
+
+class PMP extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.purple[900], 
+        accentColor: Colors.blueAccent[900],
+        fontFamily: 'Lato',
+        ),
+      routes: {
+        '/CPUList': (context) => CpuListScreen()
+      },
+      debugShowCheckedModeBanner: false,
+      home: CpuProductsScreen(),
+    );
+  }
+
+}
+
+
+
 
 
 class SplashScreen extends StatefulWidget {
@@ -76,34 +104,13 @@ class _SplashScreenState extends State<SplashScreen> {
             Navigator.push(context, CupertinoPageRoute(builder: (context) => PCBuildForm()));
           } ),
 
-          // Container(decoration: BoxDecoration(color: Colors.purpleAccent),), 
           ],
         )
-        // fit: StackFit.expand,
         
       ),
     );
   }
 }
-
-
-Route _createRoute() {
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => MyApp(),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(0.0, 1.0);
-        var end = Offset.zero;
-        var curve = Curves.ease;
-
-        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-        return SlideTransition(
-          position: animation.drive(tween),
-          child: child,
-        );
-      },
-    );
-  }
 
 class MyApp extends StatelessWidget {
   @override
@@ -115,17 +122,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      // home: Scaffold(
-      //   appBar: AppBar(
-      //     title: Text('Welcome to Flutter'),
-      //   ),
-      //   body: Center(
-      //     child: RandomWords(),
-      //   ),
-      // ),
     );
   }
 }
+
+
+
 
 class RandomWords extends StatefulWidget {
   @override
