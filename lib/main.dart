@@ -4,13 +4,19 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:english_words/english_words.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:test_app/pages/cpu_list.dart';
 import 'package:test_app/pages/pc_build_form.dart';
 import 'package:test_app/pages/ram_list.dart';
+
 import './pages/alt_cpu_list.dart';
+import './pages/home_page.dart';
+
+import './providers/products_provider.dart';
 
 
 
@@ -20,8 +26,10 @@ var routes = <String, WidgetBuilder> {
 };
 
 
-void main() => runApp(PMP());
+void main() => runApp( PimpMyPc() );
 
+
+// ignore this
 void main2()  {
 
   String ramArray = '{ "RAM": [' + 
@@ -45,22 +53,48 @@ void main2()  {
 }
 
 
+class PimpMyPc extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.blue[900],
+        accentColor: Colors.redAccent[900],
+        fontFamily: 'Lato',
+      ),
+      debugShowCheckedModeBanner: false,
+      home: PMPHomeScreen(),
+    );
+
+  }
+
+}
+
+
 class PMP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context){
-    return MaterialApp(
-      theme: ThemeData(
+    return ChangeNotifierProvider(
+      create: (ctx) => Products(),  
+      child: MaterialApp(
+
+        theme: ThemeData(
         primaryColor: Colors.purple[900], 
         accentColor: Colors.blueAccent[900],
         fontFamily: 'Lato',
         ),
-      routes: {
-        '/CPUList': (context) => CpuListScreen()
-      },
-      debugShowCheckedModeBanner: false,
-      home: CpuProductsScreen(),
-    );
+        routes: {
+          '/CPUList': (context) => CpuListScreen()
+        },
+        debugShowCheckedModeBanner: false,
+        home: CpuProductsScreen(),
+
+      ),
+    
+    ); 
   }
 
 }
