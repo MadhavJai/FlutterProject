@@ -4,8 +4,12 @@ import 'package:test_app/pages/gpu_list.dart';
 import 'package:test_app/pages/ram_list.dart';
 import 'package:test_app/pages/storage_list.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
 import 'cpu_list.dart';
+import 'alt_cpu_list.dart';
+
+import '../providers/products_provider.dart';
 
 
 class PCBuildForm extends StatefulWidget{
@@ -17,12 +21,16 @@ class _PCBuildForm extends State<PCBuildForm> {
   static final showGrid = true; // Set to false to show ListView
   @override
   Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('PC builder'),
-      ),
-      body: Center(child: _buildList(),),
-    );
+    return 
+      ChangeNotifierProvider(
+        create: (ctx) => Products(),  
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('PC builder'),
+          ),
+          body: Center(child: _buildList(),),
+        )
+      );
   }
   
 
@@ -61,7 +69,7 @@ class _PCBuildForm extends State<PCBuildForm> {
         break;
 
         case 1:{
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CpuListScreen())); 
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CpuProductsScreen())); 
         }
         break;
 
